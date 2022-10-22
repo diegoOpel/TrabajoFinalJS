@@ -1,0 +1,12 @@
+a{
+  text-decoration: none;
+}
+.nav-link:hover ~ .dropdown-menu, .dropdown-menu:hover{
+  display: block;
+}
+
+.abreCarrito{
+  visibility: visible;
+  transform: none !important; 
+  /* NO ENCONTRE OTRA SOLUCION QUE AGREGAR EL !IMPORTANT PARA SOBRESCRIBIR A BOOTSTRAP */
+}

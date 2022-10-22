@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpelSports</title>
+  <link rel="icon" href="./media/futbol-solid.svg">
+  <script src="https://kit.fontawesome.com/c5f154dc0d.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="./style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div>
+          <a class="navbar-brand" href="./index.html">
+            <i class="fa-regular fa-futbol"></i>
+            OpelSports
+          </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown genero" data-genero="hombre">
+              <a class="nav-link dropdown-toggle genero" data-genero="hombre" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Hombre
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item categoria" data-categoria="hombrezapatilla" href="#">Zapatillas</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="hombrebotines" href="#">Botines</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="hombreindumentaria" href="#">Indumentaria</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="hombreaccesorio" href="#">Accesorios</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown genero" data-genero="mujer">
+              <a class="nav-link dropdown-toggle  genero" data-genero="mujer" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mujer
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item categoria" data-categoria="mujerzapatilla" href="#">Zapatillas</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="mujerindumentaria" href="#">Indumentaria</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="mujeraccesorio" href="#">Accesorios</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown genero" data-genero="ninio">
+              <a class="nav-link dropdown-toggle genero" data-genero="ninio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Niño
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item categoria" data-categoria="niniozapatilla" href="#">Zapatillas</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="niniobotines" href="#">Botines</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="ninioindumentaria" href="#">Indumentaria</a></li>
+                <li><a class="dropdown-item categoria" data-categoria="ninioaccesorios" href="#">Accesorios</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown deporte">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Deporte
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item deporte" data-deporte="futbol" href="#">Fútbol</a></li>
+                <li><a class="dropdown-item deporte" data-deporte="basket" href="#">Basket</a></li>
+                <li><a class="dropdown-item deporte" data-deporte="tenis" href="#">Tenis</a></li>
+                <li><a class="dropdown-item deporte" data-deporte="rugby" href="#">Rugby</a></li>
+                <li><a class="dropdown-item deporte" data-deporte="natacion" href="#">Natación</a></li>
+              </ul>
+            </li>
+            <li class="nav-item oferta">
+              <a class="nav-link oferta" href="#">Ofertas</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" id="inputBuscar" type="search" placeholder="Qué estás buscando?" aria-label="Search">
+          </form>
+          <button type="button" class="btn btn-outline-danger mx-3 botonCarrito"><i class="fa-solid fa-cart-shopping botonCarrito"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="d-flex flex-row  flex-wrap justify-content-evenly p-3 bg-danger min-vh-100"></main>
+  <aside class="contenedorCarrito">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        
+      </div>
+      <div class="mx-auto"><h6>Total: <b id="total">$0</b></h6></div>
+      <div class="d-grid gap-2 d-md-block mb-2 mx-auto">
+        <button class="btn btn-danger vaciarCarrito" type="button">Vaciar Carrito</button>
+        <button class="btn btn-success finalizaCompra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </aside>
+  <footer>
+    <div class="d-flex flex-row justify-content-between bg-dark px-2 text-bg-dark p-3">
+      <div ><a class="link-light" href="https://github.com/diegoOpel">©Diego Opel</a></div>
+      <div>
+        <a class="link-light fs-5 px-1" href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a class="link-light fs-5 px-1" href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  <template id="templateCards">
+    <div class="card text-bg-secondary mb-3" style="width: 18rem;">
+      <img src="./media/camisetaArgentina.jfif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Argentina</h5>
+        <p class="card-text">$20000</p>
+        <form name="formProducto">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="talleElegido">
+            <option selected>Elegir talle</option>
+          </select>
+          <button type="submit" class="btn btn-warning mt-2 btnAgregar" data-id="..">Añadir al carrito</button>
+        </form>
+    </div>
+    </div>
+  </template>
+  <template id="templateCarrito">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="./media/camisetaArgentina.jfif" class="img-fluid rounded" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Camiseta Argentina</h5>
+            <h6 class="card-subtitle mb-2 text-muted">$20000</h6>
+            <p class="card-text">Cantidad <b>1</b></p>
+            <p class="card-text talle" data-id="">Talle: </p>
+            <h6 class="card-subtitle mb-2">Subtotal <b>$20000</b></h6>
+            <div class="d-grid gap-2 d-md-block mb-2 mx-auto">
+              <button class="btn btn-success btn-sm" type="button"><i class="fa-solid fa-plus" data-id=".."></i></button>
+              <button class="btn btn-danger btn-sm" type="button"><i class="fa-solid fa-minus" data-id=".." data-stock=".."></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./carrito.js"></script>
+  <script src="./filtros.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
