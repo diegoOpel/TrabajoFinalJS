@@ -9,7 +9,6 @@ const buscador = () =>{
 inputBuscar.addEventListener("keyup", buscador);
 
 document.addEventListener("click", (e) =>{
-  console.log(e.target);
   if(e.target.matches(".genero")){
     const resultado = productos.filter((producto) => producto.genero.includes(e.target.dataset.genero));
     renderProductos(resultado);

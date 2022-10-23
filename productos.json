@@ -12,7 +12,6 @@
   "cantidadVendida": 1, 
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/camisetaArgentina.jfif"
 },
 {
@@ -30,7 +29,6 @@
   "talleElegido": "", 
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/nikeAirMax.jfif"
 },
 {
@@ -48,7 +46,6 @@
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/musculosaTopper.jfif"
 },
 {
@@ -66,7 +63,6 @@
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/zapatillaPumaSmiley.jfif"
 },
 {
@@ -78,13 +74,12 @@
   "marca": "Umbro",
   "deporte": "Futbol",
   "categoria": "hombreAccesoriosmujerAccesorios",
-  "genero": "unisex",
+  "genero": "hombremujer",
   "stock": 10,
   "cantidadVendida": 1, 
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/pelotaUmbro.jfif"
 },
 {
@@ -102,7 +97,6 @@
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/botinAdidasPredator.jfif"
 },
 {
@@ -120,7 +114,6 @@
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/topReebok.jfif"
 },
 {
@@ -138,7 +131,6 @@
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": true,
-  "precioAnterior": 8399,
   "imagen": "./media/shortPumaOferta.jfif"
 },
 {
@@ -150,13 +142,12 @@
   "marca": "Wilson",
   "deporte": "Padel",
   "categoria": "hombreAccesoriosmujerAccesorios",
-  "genero": "unisex",
+  "genero": "hombremujer",
   "stock": 10,
   "cantidadVendida": 1, 
   "talleElegido": "",
   "precioTotal": 1,
   "oferta": false,
-  "precioAnterior": 0,
   "imagen": "./media/paletaPadelWilson.jfif"
 }
 ]

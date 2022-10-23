@@ -1,7 +1,7 @@
 a{
   text-decoration: none;
 }
-.nav-link:hover ~ .dropdown-menu, .dropdown-menu:hover{
+.nav-link:hover ~ .dropdown-menu, .dropdown-menu:hover, .modal{
   display: block;
 }
 
@@ -9,4 +9,8 @@ a{
   visibility: visible;
   transform: none !important; 
   /* NO ENCONTRE OTRA SOLUCION QUE AGREGAR EL !IMPORTANT PARA SOBRESCRIBIR A BOOTSTRAP */
+}
+
+.noShow{
+  display: none;
 }

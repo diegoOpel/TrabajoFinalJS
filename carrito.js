@@ -21,7 +21,7 @@ const actualizaCarrito = () => {
     clone.querySelector(".card-title").textContent = producto.nombre.toUpperCase();
     clone.querySelector(".text-muted").textContent = `$ ${producto.precio}`;
     clone.querySelector(".card-text b").textContent = producto.cantidadVendida;
-    clone.querySelector(".talle").textContent = "Talle: ", producto.talleElegido;
+    clone.querySelector(".talle").textContent = "Talle: "+producto.talleElegido;
     clone.querySelector(".card-subtitle b").textContent = `$ ${subtotal}`;;
     clone.querySelector(".fa-plus").dataset.id = producto.id;
     clone.querySelector(".fa-minus").dataset.id = producto.id;
@@ -32,28 +32,24 @@ const actualizaCarrito = () => {
   totalizar();
 };
 
-const aniadeACarrito = (id) => {
+const aniadeACarrito = (id, talle) => {
   const index = carritoDeCompras.findIndex(producto => producto.id === id);
   if(index!==-1){
     if(carritoDeCompras[index].stock===carritoDeCompras[index].cantidadVendida){
-      Toastify({
-        text: "No hay más stock en ese producto",
-        duration: 3000,
-        close: false,
-        gravity: "top", 
-        position: "center", 
-        stopOnFocus: false, 
-        style: {
-          background: "linear-gradient(to right, rgba(152,25,0,1) 22%, rgba(255,0,0,1) 100%)",
-        },
-      }).showToast();
-    }else{
+      muestraToast(rojo,"No hay más stock en ese producto");
+    }else if(!carritoDeCompras[index].talleElegido===talle){
+      let producto = productos.find(producto => producto.id === id );
+      producto.cantidadVendida = 1;
+      producto.talleElegido=talle;
+      carritoDeCompras.push(producto);
+    }
+    else{
       carritoDeCompras[index].cantidadVendida++;
     };
-  }
-  else{
+  }else{
     let producto = productos.find(producto => producto.id === id );
     producto.cantidadVendida = 1;
+    producto.talleElegido=talle;
     carritoDeCompras.push(producto); 
   };
   actualizaCarrito();
@@ -63,19 +59,8 @@ const disminuyeCantidad = (id) => {
   const index = carritoDeCompras.findIndex(producto => producto.id === id);
   carritoDeCompras[index].cantidadVendida--;
   if(carritoDeCompras[index].cantidadVendida<=0){
-    const elementoEliminado = carritoDeCompras.splice(index,1);
-    console.log(elementoEliminado);
-    Toastify({
-      text: "Se quitó el producto del carrito",
-      duration: 1000,
-      close: false,
-      gravity: "top", 
-      position: "center", 
-      stopOnFocus: false, 
-      style: {
-        background: "linear-gradient(to right, rgba(152,25,0,1) 22%, rgba(255,0,0,1) 100%)",
-      },
-    }).showToast();
+    carritoDeCompras.splice(index,1);
+    muestraToast(rojo,"Se quitó el producto del carrito")
   };
   actualizaCarrito();
 };

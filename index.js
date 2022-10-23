@@ -3,6 +3,14 @@ const main = document.querySelector('main');
 const templateCards = document.getElementById("templateCards").content;
 const templateCarrito = document.getElementById("templateCarrito").content;
 const offcanvas = document.querySelector(".offcanvas");
+const modalFinalizaCompra = document.querySelector(".modal");
+const btnFinalizarCompra = document.getElementById("btnFinalizarCompra");
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const address = document.getElementById("address");
+const message = document.getElementById("message");
+const rojo = "linear-gradient(to right, rgba(152,25,0,1) 22%, rgba(255,0,0,1) 100%)";
+const verde = "linear-gradient(to right, #00b09b, #96c93d)";
 const carritoDeCompras = [];
 
 const recuperaProductos = async () => {
@@ -24,7 +32,7 @@ const renderProductos = (array) => {
     clone.querySelector("p").textContent = `$ ${producto.precio}`;
     const select = clone.querySelector("select");
     clone.querySelector("button").dataset.id = producto.id;
-    clone.querySelector("select").dataset.id = producto.id;
+    clone.querySelector("select").classList.add("selectTalle"+producto.id);
     producto.talle.forEach((talle) =>{
       const fragment = document.createDocumentFragment();
       const tamanio = document.createElement("option");
@@ -41,6 +49,53 @@ const renderProductos = (array) => {
   main.appendChild(fragment);
 };
 
+const muestraToast= (color, mensaje) => {
+  Toastify({
+    text: mensaje,
+    duration: 3000,
+    close: false,
+    gravity: "top", 
+    position: "center", 
+    stopOnFocus: false, 
+    style: {
+      background: color,
+    },
+  }).showToast();
+};
+
+const finalizarCompra = () => {
+  modalFinalizaCompra.classList.toggle('noShow');
+  message.value="";
+  carritoDeCompras.forEach((producto) => message.value +=
+  `${producto.nombre}, TALLE: ${producto.talleElegido}, CANTIDAD: ${producto.cantidadVendida}, PRECIO UNITARIO: $${producto.precio}, SUBTOTAL: $${producto.precio*producto.cantidadVendida}`
+  );
+  message.value += ` TOTAL: ${offcanvas.querySelector("#total").textContent}`;
+
+    
+  btnFinalizarCompra.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(message.value);
+    const form = document.getElementById('form');
+    btnFinalizarCompra.value = 'Finalizando compra...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_d0sq32m';
+
+    emailjs.sendForm(serviceID, templateID, form)
+      .then(() => {
+        btnFinalizarCompra.value = 'Finalizar compra';
+        muestraToast(verde,"Compra finalizada!");
+        modalFinalizaCompra.classList.toggle('noShow');
+        offcanvas.classList.remove("abreCarrito");
+        carritoDeCompras.splice(0,carritoDeCompras.length);
+				actualizaCarrito();
+      }, (err) => {
+        btnFinalizarCompra.value = 'Finalizar compra';
+        muestraToast(rojo,"Ups, algo anda mal...");
+      });
+});
+};
+
 document.addEventListener("click", (e) =>{
   if(e.target.matches(".botonCarrito")){
     offcanvas.classList.add("abreCarrito");
@@ -50,21 +105,14 @@ document.addEventListener("click", (e) =>{
   };
   if(e.target.matches(".btnAgregar")){
     e.preventDefault();
-    console.log(e)
     const id = parseInt(e.target.dataset.id);
-    productos[id].talleElegido = "";
-    aniadeACarrito(id);
-    Toastify({
-      text: "Se añadió el producto al carrito",
-      duration: 1000,
-      close: false,
-      gravity: "top", 
-      position: "center", 
-      stopOnFocus: false, 
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
+    const talleElegido = document.querySelector(".selectTalle"+id).value;
+    if(talleElegido!=="Elegir talle"){
+      aniadeACarrito(id,talleElegido);
+      muestraToast(verde,"Se añadió el producto al carrito")
+    }else{
+      muestraToast(rojo,"Elige un talle primero")
+    }
   };
   if(e.target.matches(".vaciarCarrito")){
     vaciaCarrito();
@@ -80,10 +128,11 @@ document.addEventListener("click", (e) =>{
   if(e.target.matches(".navbar-toggler-icon")){
     document.querySelector(".navbar-collapse").classList.toggle("show")
   };
-  if(e.target.matches(".talleElegido")){
-    console.log(e.target)
-    let producto = productos.find(producto => producto.id === e.target.dataset.id);
-    producto.talleElegido = e.target.value;
+  if(e.target.matches(".finalizaCompra")){
+    carritoDeCompras.length>0 ? finalizarCompra(): muestraToast(rojo,"Tenés que agregar algo al carrito primero")
+  };
+  if(e.target.matches(".cierraModal")){
+    modalFinalizaCompra.classList.toggle('noShow');
   };
 });
 recuperaProductos();
