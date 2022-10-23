@@ -52,8 +52,9 @@ const aniadeACarrito = (id, talle) => {
       carritoDeCompras[index].cantidadVendida++;
     };
   }else{
-    let producto = productos.find(producto => producto.id === id );
-    producto.tallesObj[talle].cantidadVendida++
+    const producto = productos.find(producto => producto.id === id );
+    producto.tallesObj[talle].cantidadVendida=1
+    producto.cantidadVendida=1;
     carritoDeCompras.push(producto); 
   };
   actualizaCarrito();
@@ -63,9 +64,9 @@ const disminuyeCantidad = (id,talle) => {
   const index = carritoDeCompras.findIndex(producto => producto.id === id);
   carritoDeCompras[index].cantidadVendida--;
   carritoDeCompras[index].tallesObj[talle].cantidadVendida--;
-  if(carritoDeCompras[index].cantidadVendida<=0){
+  if(carritoDeCompras[index].cantidadVendida===0){
     carritoDeCompras.splice(index,1);
-    muestraToast(rojo,"Se quitó el producto del carrito")
+    muestraToast(rojo,"Se quitó el producto del carrito");
   };
   actualizaCarrito();
 };
@@ -85,6 +86,11 @@ const vaciaCarrito = () => {
 			denyButtonText: `Cancelar`,
 		}).then((result) => {
 			if (result.isConfirmed) {
+        carritoDeCompras.forEach(producto=>{
+          for(const talle in producto.tallesObj){
+            producto.tallesObj[talle].cantidadVendida=0;
+          };
+        });
 				carritoDeCompras.splice(0,carritoDeCompras.length);
 				actualizaCarrito();
 				Swal.fire({
