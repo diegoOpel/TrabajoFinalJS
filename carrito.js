@@ -13,6 +13,7 @@ const actualizaCarrito = () => {
   localStorage.setItem('carrito',JSON.stringify(carritoDeCompras));  
   offcanvas.querySelector(".offcanvas-body").innerHTML="";
   const fragment = document.createDocumentFragment();
+  const fragmentInner = document.createDocumentFragment();
   carritoDeCompras.forEach((producto) => {
     const subtotal = producto.precio*producto.cantidadVendida;
     const clone = templateCarrito.cloneNode(true);
@@ -20,12 +21,20 @@ const actualizaCarrito = () => {
     clone.querySelector(".img-fluid").setAttribute("alt", producto.nombre);
     clone.querySelector(".card-title").textContent = producto.nombre.toUpperCase();
     clone.querySelector(".text-muted").textContent = `$ ${producto.precio}`;
-    clone.querySelector(".card-text b").textContent = producto.cantidadVendida;
-    clone.querySelector(".talle").textContent = "Talle: "+producto.talleElegido;
+    for(const talle in producto.tallesObj){
+      if(producto.tallesObj[talle].cantidadVendida>0){
+        const cloneInner = templateTalles.cloneNode(true);
+        cloneInner.querySelector(".talle").textContent = "Talle: "+talle;
+        cloneInner.querySelector(".card-text b").textContent = producto.tallesObj[talle].cantidadVendida;
+        cloneInner.querySelector(".fa-plus").dataset.id = producto.id;
+        cloneInner.querySelector(".fa-plus").dataset.talle = talle;
+        cloneInner.querySelector(".fa-minus").dataset.id = producto.id;
+        cloneInner.querySelector(".fa-minus").dataset.talle = talle;
+        fragmentInner.appendChild(cloneInner);
+      }
+    }
+    clone.querySelector(".talle").appendChild(fragmentInner);
     clone.querySelector(".card-subtitle b").textContent = `$ ${subtotal}`;;
-    clone.querySelector(".fa-plus").dataset.id = producto.id;
-    clone.querySelector(".fa-minus").dataset.id = producto.id;
-    clone.querySelector(".fa-minus").dataset.stock = producto.stock;
     fragment.appendChild(clone);
   });
   offcanvas.querySelector(".offcanvas-body").appendChild(fragment);
@@ -33,31 +42,27 @@ const actualizaCarrito = () => {
 };
 
 const aniadeACarrito = (id, talle) => {
+  console.log(id,talle)
   const index = carritoDeCompras.findIndex(producto => producto.id === id);
   if(index!==-1){
-    if(carritoDeCompras[index].stock===carritoDeCompras[index].cantidadVendida){
-      muestraToast(rojo,"No hay más stock en ese producto");
-    }else if(!carritoDeCompras[index].talleElegido===talle){
-      let producto = productos.find(producto => producto.id === id );
-      producto.cantidadVendida = 1;
-      producto.talleElegido=talle;
-      carritoDeCompras.push(producto);
-    }
-    else{
+    if(carritoDeCompras[index].tallesObj[talle].stock===carritoDeCompras[index].tallesObj[talle].cantidadVendida){
+      muestraToast(rojo,"No hay más stock en este talle del producto");
+    }else{
+      carritoDeCompras[index].tallesObj[talle].cantidadVendida++;
       carritoDeCompras[index].cantidadVendida++;
     };
   }else{
     let producto = productos.find(producto => producto.id === id );
-    producto.cantidadVendida = 1;
-    producto.talleElegido=talle;
+    producto.tallesObj[talle].cantidadVendida++
     carritoDeCompras.push(producto); 
   };
   actualizaCarrito();
 };
 
-const disminuyeCantidad = (id) => {
+const disminuyeCantidad = (id,talle) => {
   const index = carritoDeCompras.findIndex(producto => producto.id === id);
   carritoDeCompras[index].cantidadVendida--;
+  carritoDeCompras[index].tallesObj[talle].cantidadVendida--;
   if(carritoDeCompras[index].cantidadVendida<=0){
     carritoDeCompras.splice(index,1);
     muestraToast(rojo,"Se quitó el producto del carrito")

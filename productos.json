@@ -3,50 +3,108 @@
   "nombre": "Camiseta adidas Afa",
   "precio": 19500,
   "color": "Celeste/Blanco",
-  "talle": ["XS","S","M","L","XL"],
   "marca": "Adidas",
   "deporte": "Futbol",
   "categoria": "hombreIndumentaria",
   "genero": "hombre",
   "stock": 10,
   "cantidadVendida": 1, 
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/camisetaArgentina.jfif"
+  "imagen": "./media/camisetaArgentina.jfif",
+  "tallesObj": {
+    "XS":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "S":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "M":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "L":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "XL":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 1,
   "nombre": "Nike Air Max",
   "precio": 29099,
   "color": "Gris/Blanco",
-  "talle": [36.5,37,37.5,38,39.5],
   "marca": "Nike",
   "deporte": "Running",
   "categoria": "mujerZapatilla",
   "genero": "mujer",
   "stock": 10,
   "cantidadVendida": 1,
-  "talleElegido": "", 
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/nikeAirMax.jfif"
+  "imagen": "./media/nikeAirMax.jfif",
+  "tallesObj": {
+    "36.5":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "37":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "37.5":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "38":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "39.5":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 2,
   "nombre": "Musculosa Topper",
   "precio": 1299,
   "color": "Amarillo",
-  "talle": ["XS","S","M","L","XL"],
   "marca": "Topper",
   "deporte": "Training",
   "categoria": "mujerIndumentaria",
   "genero": "mujer",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/musculosaTopper.jfif"
+  "imagen": "./media/musculosaTopper.jfif",
+  "tallesObj": {
+    "XS":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "S":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "M":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "L":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "XL":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 3,
@@ -60,10 +118,42 @@
   "genero": "ninio",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/zapatillaPumaSmiley.jfif"
+  "imagen": "./media/zapatillaPumaSmiley.jfif",
+  "tallesObj": {
+    "27":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "28":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "29":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "30":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "31":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "32":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "33":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "34":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }  
 },
 {
   "id": 4,
@@ -77,77 +167,362 @@
   "genero": "hombremujer",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/pelotaUmbro.jfif"
+  "imagen": "./media/pelotaUmbro.jfif",
+  "tallesObj": {
+    "5":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }
 },
 {
   "id": 5,
   "nombre": "Botines Adidas Predator",
   "precio": 29899,
   "color": "Naranja",
-  "talle": [40,41,42,43,44],
   "marca": "Adidas",
   "deporte": "Futbol",
   "categoria": "hombreBotines",
   "genero": "hombre",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/botinAdidasPredator.jfif"
+  "imagen": "./media/botinAdidasPredator.jfif",
+  "tallesObj": {
+    "40":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "41":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "42":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "43":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "44":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 6,
   "nombre": "Top Reebok Training",
   "precio": 4999,
   "color": "Negro",
-  "talle": ["XS","S","M","L","XL"],
   "marca": "Reebok",
   "deporte": "Training",
   "categoria": "mujerIndumentaria",
   "genero": "mujer",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/topReebok.jfif"
+  "imagen": "./media/topReebok.jfif",
+  "tallesObj": {
+    "XS":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "S":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "M":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "L":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "XL":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 7,
   "nombre": "Short Puma Power",
   "precio": 6399,
   "color": "Negro",
-  "talle": ["XS","S","M","L","XL"],
   "marca": "Puma",
   "deporte": "Training",
   "categoria": "hombreIndumentaria",
   "genero": "hombre",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": true,
-  "imagen": "./media/shortPumaOferta.jfif"
+  "imagen": "./media/shortPumaOferta.jfif",
+  "tallesObj": {
+    "XS":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "S":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "M":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "L":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "XL":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
 },
 {
   "id": 8,
   "nombre": "Paleta Wilson Kaos",
   "precio": 47399,
   "color": "Negro/Gris/Verde",
-  "talle": ["Único"],
   "marca": "Wilson",
   "deporte": "Padel",
   "categoria": "hombreAccesoriosmujerAccesorios",
   "genero": "hombremujer",
   "stock": 10,
   "cantidadVendida": 1, 
-  "talleElegido": "",
-  "precioTotal": 1,
   "oferta": false,
-  "imagen": "./media/paletaPadelWilson.jfif"
+  "imagen": "./media/paletaPadelWilson.jfif",
+  "tallesObj": {
+    "Unico":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }
+},
+{
+  "id": 9,
+  "nombre": "Antiparras Speedo Vengeance",
+  "precio": 6299,
+  "color": "Azul/Naranja",
+  "marca": "Speedo",
+  "deporte": "natacion",
+  "categoria": "hombreAccesoriosmujerAccesoriosninioAccesorios",
+  "genero": "hombremujerninio",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/antiparrasSpeedo.jfif",
+  "tallesObj": {
+    "Unico":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }
+},
+{
+  "id": 10,
+  "nombre": "Pelota Gilbert Barbarian Pumas 2020",
+  "precio": 17430,
+  "color": "Azul/Blanca",
+  "talle": ["Único"],
+  "marca": "Gilbert",
+  "deporte": "rugby",
+  "categoria": "hombreAccesoriosmujerAccesoriosninioAccesorios",
+  "genero": "hombremujerninio",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/pelotaRugbyGilbert.jfif",
+  "tallesObj": {
+    "Unico":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }
+},
+{
+  "id": 11,
+  "nombre": "Camiseta adidas Boca Juniors Away",
+  "precio": 14999,
+  "color": "Azul/Blanca",
+  "talle": ["XS","S","M","L","XL"],
+  "marca": "Adidas",
+  "deporte": "basket",
+  "categoria": "hombreIndumentaria",
+  "genero": "hombre",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/camisetaBasketAdidasBoca.jfif",
+  "tallesObj": {
+                  "XS":{
+                    "stock":10,
+                    "cantidadVendida":0
+                  },
+                  "S":{
+                    "stock":10,
+                    "cantidadVendida":0
+                  },
+                  "M":{
+                    "stock":10,
+                    "cantidadVendida":0
+                  },
+                  "L":{
+                    "stock":10,
+                    "cantidadVendida":0
+                  },
+                  "XL":{
+                    "stock":10,
+                    "cantidadVendida":0
+                  }
+  }
+},
+{
+  "id": 12,
+  "nombre": "Zapatillas Nike Air Max Sc",
+  "precio": 36999,
+  "color": "Negro/Blanco",
+  "marca": "Nike",
+  "deporte": "Running",
+  "categoria": "hombreZapatilla",
+  "genero": "hombre",
+  "stock": 10,
+  "cantidadVendida": 1,
+  "oferta": false,
+  "imagen": "./media/zapatillasNikeHombre.jfif",
+  "tallesObj": {
+    "39.5":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "40":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "40.5":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "41":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "43":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+}
+},
+{
+  "id": 13,
+  "nombre": "Raqueta Wilson Pro Staff Precision 103",
+  "precio": 33099,
+  "color": "Negra/Roja",
+  "talle": ["Único"],
+  "marca": "Wilson",
+  "deporte": "tenis",
+  "categoria": "hombreAccesoriosmujerAccesoriosninioAccesorios",
+  "genero": "hombremujerninio",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/raquetaWilson.jfif",
+  "tallesObj": {
+    "Unico":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }
+},
+{
+  "id": 14,
+  "nombre": "Botines Nike Jr. Mercurial Vapor 14 Academy Mg",
+  "precio": 25199,
+  "color": "Negro/Dorado",
+  "talle": [27,28,29,30,31,32,33,34],
+  "marca": "Nike",
+  "deporte": "Futbol",
+  "categoria": "ninioBotines",
+  "genero": "ninio",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/botinNikeNinio.jfif",
+  "tallesObj": {
+    "27":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "28":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "29":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "30":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "31":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "32":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "33":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "34":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+  }  
+},
+{
+  "id": 15,
+  "nombre": "Camiseta adidas AFA Messi Infantil",
+  "precio": 19799,
+  "color": "Celeste/Blanco",
+  "talle": [27,28,29,30,31,32,33,34],
+  "marca": "Adidas",
+  "deporte": "Futbol",
+  "categoria": "ninioIndumentaria",
+  "genero": "ninio",
+  "stock": 10,
+  "cantidadVendida": 1, 
+  "oferta": false,
+  "imagen": "./media/camisetaArgentinaNinio.jfif",
+  "tallesObj": {
+    "XS":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "S":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "M":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "L":{
+      "stock":10,
+      "cantidadVendida":0
+    },
+    "XL":{
+      "stock":10,
+      "cantidadVendida":0
+    }
+} 
 }
 ]

@@ -2,6 +2,7 @@ const productos = [];
 const main = document.querySelector('main');
 const templateCards = document.getElementById("templateCards").content;
 const templateCarrito = document.getElementById("templateCarrito").content;
+const templateTalles = document.getElementById("templateTalles").content;
 const offcanvas = document.querySelector(".offcanvas");
 const modalFinalizaCompra = document.querySelector(".modal");
 const btnFinalizarCompra = document.getElementById("btnFinalizarCompra");
@@ -33,7 +34,7 @@ const renderProductos = (array) => {
     const select = clone.querySelector("select");
     clone.querySelector("button").dataset.id = producto.id;
     clone.querySelector("select").classList.add("selectTalle"+producto.id);
-    producto.talle.forEach((talle) =>{
+    for(const talle in producto.tallesObj){
       const fragment = document.createDocumentFragment();
       const tamanio = document.createElement("option");
       tamanio.setAttribute("value", talle);
@@ -42,7 +43,7 @@ const renderProductos = (array) => {
       tamanio.textContent = talle;
       fragment.appendChild(tamanio);
       select.appendChild(fragment);
-    });
+    }
     fragment.appendChild(clone);
   });
   main.textContent = "";
@@ -65,12 +66,18 @@ const muestraToast= (color, mensaje) => {
 
 const finalizarCompra = () => {
   modalFinalizaCompra.classList.toggle('noShow');
+  let talles = "";
   message.value="";
-  carritoDeCompras.forEach((producto) => message.value +=
-  `${producto.nombre}, TALLE: ${producto.talleElegido}, CANTIDAD: ${producto.cantidadVendida}, PRECIO UNITARIO: $${producto.precio}, SUBTOTAL: $${producto.precio*producto.cantidadVendida}`
-  );
-  message.value += ` TOTAL: ${offcanvas.querySelector("#total").textContent}`;
-
+  carritoDeCompras.forEach((producto) => {
+    for(const talle in producto.tallesObj){
+      if (producto.tallesObj[talle].cantidadVendida>0){
+        talles+= `${talle} `;
+      };
+    };
+    message.value +=`${producto.nombre}, TALLES: ${talles}, CANTIDAD: ${producto.cantidadVendida}, PRECIO UNITARIO: $${producto.precio}, SUBTOTAL: $${producto.precio*producto.cantidadVendida}`
+  });
+  message.value += ` TOTAL: ${offcanvas.querySelector("#total").textContent}`
+  
     
   btnFinalizarCompra.addEventListener("click", (e) => {
     e.preventDefault();
@@ -119,11 +126,14 @@ document.addEventListener("click", (e) =>{
   };
   if(e.target.matches(".fa-plus")){
     const id = parseInt(e.target.dataset.id);
-    aniadeACarrito(id);
+    const talle = e.target.dataset.talle;
+    console.log(id,talle)
+    aniadeACarrito(id,talle);
   };
   if(e.target.matches(".fa-minus")){
     const id = parseInt(e.target.dataset.id);
-    disminuyeCantidad(id);
+    const talle = e.target.dataset.talle;
+    disminuyeCantidad(id,talle);
   };
   if(e.target.matches(".navbar-toggler-icon")){
     document.querySelector(".navbar-collapse").classList.toggle("show")

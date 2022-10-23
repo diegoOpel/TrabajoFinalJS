@@ -14,3 +14,6 @@ a{
 .noShow{
   display: none;
 }
+main{
+  margin-top: 8vh;
+}

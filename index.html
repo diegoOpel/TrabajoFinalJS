@@ -15,7 +15,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <div>
           <a class="navbar-brand" href="./index.html">
@@ -161,15 +161,21 @@
           <div class="card-body">
             <h5 class="card-title">Camiseta Argentina</h5>
             <h6 class="card-subtitle mb-2 text-muted">$20000</h6>
-            <p class="card-text">Cantidad <b>1</b></p>
-            <p class="card-text talle" data-id="">Talle: </p>
+            <div class="card-text talle"> </div>
             <h6 class="card-subtitle mb-2">Subtotal <b>$20000</b></h6>
-            <div class="d-grid gap-2 d-md-block mb-2 mx-auto">
-              <button class="btn btn-success btn-sm" type="button"><i class="fa-solid fa-plus" data-id=".."></i></button>
-              <button class="btn btn-danger btn-sm" type="button"><i class="fa-solid fa-minus" data-id=".." data-stock=".."></i></button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </template>
+  <template id="templateTalles">
+    <div>
+      <p class="card-text talle" data-id="" data-talle="">Talle: </p>
+      <p class="card-text">Cantidad <b>1</b></p>
+      <div class="d-grid gap-2 d-md-block mb-2 mx-auto">
+        <button class="btn btn-success btn-sm" type="button"><i class="fa-solid fa-plus" data-id=".." data-talle=".."></i></button>
+        <button class="btn btn-danger btn-sm" type="button"><i class="fa-solid fa-minus" data-id=".." data-talle=".."></i></button>
       </div>
     </div>
   </template>
